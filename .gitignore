@@ -1,0 +1,5 @@
+# Renamify workspace
+.renamify/
+.node_modules/
+.build-output/
+dist/
