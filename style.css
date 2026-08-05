@@ -552,6 +552,16 @@ section {
     display: inline-block;
 }
 
+/* Sembunyikan mobile-lang di desktop */
+.mobile-lang {
+    display: none;
+}
+
+/* Sembunyikan mobile-theme-wrapper di desktop */
+.mobile-theme-wrapper {
+    display: none;
+}
+
 .lang-dropdown-menu {
     position: absolute;
     top: calc(100% + 8px);
@@ -3260,6 +3270,75 @@ body.dark-theme .newsletter-form {
     .nav-menu.open ~ .mobile-menu-toggle .icon-close { display: block; }
 
     .btn-nav-action { display: none; }
+
+    /* Sembunyikan lang toggle di navbar saat mobile */
+    .nav-actions .lang-dropdown-wrapper {
+        display: none;
+    }
+
+    /* Sembunyikan theme toggle di navbar saat mobile */
+    .nav-actions .theme-toggle {
+        display: none;
+    }
+
+    /* Tampilkan mobile-lang di dalam sidebar */
+    .mobile-lang {
+        display: block;
+        width: 100%;
+        margin-top: 0.5rem;
+        border-top: 1px solid var(--border-color);
+        padding-top: 1.5rem;
+    }
+
+    .mobile-lang .lang-toggle {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 0.6rem;
+        padding: 0.55rem 1rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Dropdown di sidebar: posisi relative / static, bukan absolute */
+    .lang-dropdown-mobile {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border: 1px solid var(--border-color);
+        background: var(--bg-secondary);
+        border-radius: 10px;
+        margin-top: 0.5rem;
+        padding: 4px;
+        display: none;
+    }
+
+    .lang-dropdown-mobile.open {
+        display: block !important;
+    }
+
+    /* Tampilkan mobile-theme-wrapper di dalam sidebar */
+    .mobile-theme-wrapper {
+        display: block;
+        width: 100%;
+    }
+
+    .mobile-theme-toggle {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        padding: 0.55rem 1rem;
+        justify-content: flex-start;
+        gap: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .mobile-theme-label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        flex: 1;
+    }
 
     /* ── Layout fixes ── */
     html, body {

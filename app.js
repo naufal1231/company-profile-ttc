@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
        1. THEME SWITCHER (DARK / LIGHT MODE)
        ========================================================================== */
   const themeToggleBtn = document.getElementById("theme-toggle");
+  const themeToggleMobileBtn = document.getElementById("theme-toggle-mobile");
   const bodyElement = document.body;
 
   // Load saved theme or check system preferences
@@ -21,17 +22,37 @@ document.addEventListener("DOMContentLoaded", () => {
     bodyElement.className = prefersDark ? "dark-theme" : "light-theme";
   }
 
-  // Toggle theme button listener
+  // Update label teks pada mobile theme toggle
+  function updateMobileThemeLabel() {
+    const label = document.querySelector(".mobile-theme-label");
+    if (!label) return;
+    const isDark = bodyElement.classList.contains("dark-theme");
+    label.textContent = isDark ? "Tema Terang" : "Tema Gelap";
+  }
+
+  // Jalankan saat pertama load
+  updateMobileThemeLabel();
+
+  // Fungsi toggle tema terpusat
+  function toggleTheme() {
+    if (bodyElement.classList.contains("light-theme")) {
+      bodyElement.classList.replace("light-theme", "dark-theme");
+      localStorage.setItem("theme", "dark-theme");
+    } else {
+      bodyElement.classList.replace("dark-theme", "light-theme");
+      localStorage.setItem("theme", "light-theme");
+    }
+    updateMobileThemeLabel();
+  }
+
+  // Toggle theme — tombol navbar
   if (themeToggleBtn) {
-    themeToggleBtn.addEventListener("click", () => {
-      if (bodyElement.classList.contains("light-theme")) {
-        bodyElement.classList.replace("light-theme", "dark-theme");
-        localStorage.setItem("theme", "dark-theme");
-      } else {
-        bodyElement.classList.replace("dark-theme", "light-theme");
-        localStorage.setItem("theme", "light-theme");
-      }
-    });
+    themeToggleBtn.addEventListener("click", toggleTheme);
+  }
+
+  // Toggle theme — tombol sidebar mobile
+  if (themeToggleMobileBtn) {
+    themeToggleMobileBtn.addEventListener("click", toggleTheme);
   }
 
   /* ==========================================================================
@@ -973,17 +994,37 @@ if (overlay) {
     const flag = document.getElementById("lang-flag");
     const menu = document.getElementById("lang-dropdown-menu");
 
-    if (!btn || !label || !flag) return;
+    // Update tombol di navbar
+    if (btn && label && flag) {
+      const data = LANGS[lang];
+      label.textContent = data.label;
+      flag.src = data.flag;
+      flag.alt = data.name;
+      btn.title = "Switch Language";
+    }
 
-    const data = LANGS[lang];
-    label.textContent = data.label;
-    flag.src = data.flag;
-    flag.alt = data.name;
-    btn.title = "Switch Language";
+    // Update tombol di sidebar mobile
+    const btnMobile = document.getElementById("lang-toggle-mobile");
+    const labelMobile = document.getElementById("lang-label-mobile");
+    const flagMobile = document.getElementById("lang-flag-mobile");
+    if (btnMobile && labelMobile && flagMobile) {
+      const data = LANGS[lang];
+      labelMobile.textContent = data.label;
+      flagMobile.src = data.flag;
+      flagMobile.alt = data.name;
+    }
 
-    // Tandai opsi aktif di dropdown
+    // Tandai opsi aktif di dropdown navbar
     if (menu) {
       menu.querySelectorAll(".lang-option").forEach(opt => {
+        opt.classList.toggle("active", opt.dataset.lang === lang);
+      });
+    }
+
+    // Tandai opsi aktif di dropdown sidebar mobile
+    const menuMobile = document.getElementById("lang-dropdown-menu-mobile");
+    if (menuMobile) {
+      menuMobile.querySelectorAll(".lang-option").forEach(opt => {
         opt.classList.toggle("active", opt.dataset.lang === lang);
       });
     }
@@ -1031,7 +1072,7 @@ if (overlay) {
   // Init language on load
   initLanguageSystem();
 
-  // Attach dropdown open/close event
+  // Attach dropdown open/close event (navbar)
   const langToggleBtn = document.getElementById("lang-toggle");
   if (langToggleBtn) {
     langToggleBtn.addEventListener("click", (e) => {
@@ -1040,14 +1081,44 @@ if (overlay) {
     });
   }
 
-  // Attach click event untuk setiap opsi bahasa
-  document.querySelectorAll(".lang-option").forEach(opt => {
+  // Attach dropdown open/close event (mobile sidebar)
+  const langToggleBtnMobile = document.getElementById("lang-toggle-mobile");
+  if (langToggleBtnMobile) {
+    langToggleBtnMobile.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const menuMobile = document.getElementById("lang-dropdown-menu-mobile");
+      if (!menuMobile) return;
+      const isOpen = menuMobile.classList.contains("open");
+      if (isOpen) {
+        menuMobile.classList.remove("open");
+        langToggleBtnMobile.setAttribute("aria-expanded", "false");
+      } else {
+        menuMobile.classList.add("open");
+        langToggleBtnMobile.setAttribute("aria-expanded", "true");
+      }
+    });
+  }
+
+  // Attach click event untuk setiap opsi bahasa (navbar)
+  document.querySelectorAll("#lang-dropdown-menu .lang-option").forEach(opt => {
     opt.addEventListener("click", () => setLanguage(opt.dataset.lang));
+  });
+
+  // Attach click event untuk setiap opsi bahasa (sidebar mobile)
+  document.querySelectorAll("#lang-dropdown-menu-mobile .lang-option").forEach(opt => {
+    opt.addEventListener("click", () => {
+      setLanguage(opt.dataset.lang);
+      // Tutup dropdown sidebar setelah memilih
+      const menuMobile = document.getElementById("lang-dropdown-menu-mobile");
+      if (menuMobile) menuMobile.classList.remove("open");
+      const btnMobile = document.getElementById("lang-toggle-mobile");
+      if (btnMobile) btnMobile.setAttribute("aria-expanded", "false");
+    });
   });
 
   // Klik di luar dropdown -> tutup otomatis
   document.addEventListener("click", (e) => {
-    const wrapper = document.querySelector(".lang-dropdown-wrapper");
+    const wrapper = document.querySelector(".lang-dropdown-wrapper:not(.mobile-lang)");
     if (wrapper && !wrapper.contains(e.target)) {
       closeDropdown();
     }
@@ -1055,7 +1126,11 @@ if (overlay) {
 
   // Tekan Escape -> tutup dropdown
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeDropdown();
+    if (e.key === "Escape") {
+      closeDropdown();
+      const menuMobile = document.getElementById("lang-dropdown-menu-mobile");
+      if (menuMobile) menuMobile.classList.remove("open");
+    }
   });
 
 });

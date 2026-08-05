@@ -20,8 +20,10 @@
         rel="stylesheet"> -->
 
     <!-- Menggunakan Bunny Fonts (Bisa diakses di Tiongkok) -->
-<link rel="preconnect" href="https://fonts.bunny.net">
-<link href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800,900|playfair-display:400,400i,600,600i,700,700i|jetbrains-mono:400,500,600,700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link
+        href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800,900|playfair-display:400,400i,600,600i,700,700i|jetbrains-mono:400,500,600,700&display=swap"
+        rel="stylesheet" />
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="style.css">
@@ -54,13 +56,51 @@
                 <a href="#about" class="nav-link" data-i18n="nav.about">Tentang Kami</a>
                 <a href="#testimonials" class="nav-link" data-i18n="nav.testimonials">Testimoni</a>
                 <a href="#contact" class="nav-link" data-i18n="nav.contact">Kontak</a>
+
+                <!-- Lang Toggle khusus Mobile (tampil di sidebar) -->
+                <div class="lang-dropdown-wrapper mobile-lang" id="lang-mobile">
+                    <button class="lang-toggle" id="lang-toggle-mobile" aria-haspopup="true" aria-expanded="false"
+                        aria-label="Toggle Language" title="Switch Language">
+                        <img src="https://flagcdn.com/id.svg" alt="Indonesia" class="lang-flag" id="lang-flag-mobile"
+                            width="20" height="15">
+                        <span class="lang-text" id="lang-label-mobile">ID</span>
+                        <i data-lucide="chevrons-up-down" class="lang-arrow"></i>
+                    </button>
+
+                    <ul class="lang-dropdown-menu lang-dropdown-mobile" id="lang-dropdown-menu-mobile">
+                        <li class="lang-option active" data-lang="id">
+                            <img src="https://flagcdn.com/id.svg" alt="Indonesia" width="18" height="13">
+                            <span>Bahasa Indonesia</span>
+                        </li>
+                        <li class="lang-option" data-lang="en">
+                            <img src="https://flagcdn.com/gb.svg" alt="English" width="18" height="13">
+                            <span>English</span>
+                        </li>
+                        <li class="lang-option" data-lang="zh">
+                            <img src="https://flagcdn.com/tw.svg" alt="繁體中文" width="18" height="13">
+                            <span>繁體中文</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Theme Toggle khusus Mobile (tampil di sidebar) -->
+                <div class="mobile-theme-wrapper">
+                    <button class="btn-icon theme-toggle mobile-theme-toggle" id="theme-toggle-mobile"
+                        aria-label="Toggle Theme">
+                        <i data-lucide="moon" class="icon-moon"></i>
+                        <i data-lucide="sun" class="icon-sun"></i>
+                        <span class="mobile-theme-label">Tema Gelap</span>
+                    </button>
+                </div>
             </nav>
 
             <div class="nav-actions">
                 <!-- Language Toggle Button -->
-                <div class="lang-dropdown-wrapper">
-                    <button class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Language" title="Switch Language">
-                        <img src="https://flagcdn.com/id.svg" alt="Indonesia" class="lang-flag" id="lang-flag" width="20" height="15">
+                <div class="lang-dropdown-wrapper" id="lang">
+                    <button class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false"
+                        aria-label="Toggle Language" title="Switch Language">
+                        <img src="https://flagcdn.com/id.svg" alt="Indonesia" class="lang-flag" id="lang-flag"
+                            width="20" height="15">
                         <span class="lang-text" id="lang-label">ID</span>
                         <i data-lucide="chevrons-up-down" class="lang-arrow"></i>
                     </button>
@@ -97,41 +137,44 @@
         </div>
     </header>
 
-     <!-- nahan scroll -->
+    <!-- nahan scroll -->
     <div class="hero-tahan-layar" id="hero-tahan-layar">
-    <!-- Hero Section -->
-    <section class="hero video-hero" id="home">
-        <!-- Background Video Element -->
-        <div class="hero-video-wrapper">
-            <video class="hero-video-element" autoplay loop muted playsinline id="trial-video">
-                <source src="dist/assets/trial-video.mp4" type="video/mp4">
-                Browser Anda tidak mendukung tag video.
-            </video>
-            <div class="hero-video-overlay"></div>
-        </div>
+        <!-- Hero Section -->
+        <section class="hero video-hero" id="home">
+            <!-- Background Video Element -->
+            <div class="hero-video-wrapper">
+                <video class="hero-video-element" autoplay loop muted playsinline id="trial-video">
+                    <source src="dist/assets/trial-video.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+                <div class="hero-video-overlay"></div>
+            </div>
 
-        <div class="container hero-video-container">
-            <div class="hero-video-content">
-                <div class="hero-video-badge-wrapper">
-                    <span class="hero-badge video-badge">
-                        <i data-lucide="sparkles" class="badge-icon"></i> <span data-i18n="hero.badge">Solusi Digital Printing & Flexo Printing</span>
-                    </span>
-                </div>
-                
-                <span class="hero-video-title">DIGITAL &bull; FLEXO PRINTING</span>
-                
-                <div class="hero-video-logo-wrapper">
-                    <img src="dist/assets/logo_ttc.png" alt="TTC Logo" class="hero-video-logo">
-                </div>
+            <div class="container hero-video-container">
+                <div class="hero-video-content">
+                    <div class="hero-video-badge-wrapper">
+                        <span class="hero-badge video-badge">
+                            <i data-lucide="sparkles" class="badge-icon"></i> <span data-i18n="hero.badge">Solusi
+                                Digital Printing & Flexo Printing</span>
+                        </span>
+                    </div>
 
-                <p class="hero-video-slogan">TEKNOGRAFI TRI CAWANASKA</p>
-                
-                <p class="hero-video-deskripsi" data-i18n="hero.desc">
-                    Kami mengubah konsep dan identitas merek menjadi label serta kemasan berkualitas tinggi melalui teknologi flexographic printing yang presisi, sehingga membantu produk Anda tampil lebih kuat dan dipercaya konsumen.
-                </p>
+                    <span class="hero-video-title">DIGITAL &bull; FLEXO PRINTING</span>
 
-                <!-- Actions -->
-                <!-- <div class="hero-video-actions">
+                    <div class="hero-video-logo-wrapper">
+                        <img src="dist/assets/logo_ttc.png" alt="TTC Logo" class="hero-video-logo">
+                    </div>
+
+                    <p class="hero-video-slogan">TEKNOGRAFI TRI CAWANASKA</p>
+
+                    <p class="hero-video-deskripsi" data-i18n="hero.desc">
+                        Kami mengubah konsep dan identitas merek menjadi label serta kemasan berkualitas tinggi melalui
+                        teknologi flexographic printing yang presisi, sehingga membantu produk Anda tampil lebih kuat
+                        dan dipercaya konsumen.
+                    </p>
+
+                    <!-- Actions -->
+                    <!-- <div class="hero-video-actions">
                     <a href="#portfolio" class="btn btn-primary">
                         Lihat Portfolio <i data-lucide="arrow-up-right"></i>
                     </a>
@@ -142,9 +185,9 @@
                         Pelajari Proses <i data-lucide="play-circle"></i>
                     </a>
                 </div> -->
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     </div>
 
     <!-- banner status -->
@@ -175,7 +218,8 @@
             <div class="section-header">
                 <span class="section-badge" data-i18n="services.badge">Layanan Kami</span>
                 <h2 class="section-title" data-i18n="services.title">Solusi Inovatif untuk Kebutuhan Produk Anda</h2>
-                <p class="section-subtitle" data-i18n="services.subtitle">Dari konsep digital hingga eksekusi nyata. Solusi end-to-end untuk kebutuhan
+                <p class="section-subtitle" data-i18n="services.subtitle">Dari konsep digital hingga eksekusi nyata.
+                    Solusi end-to-end untuk kebutuhan
                     Digital Marketing Printing dan inovasi teknologi cetak masa kini.</p>
             </div>
 
@@ -186,9 +230,11 @@
                         <i data-lucide="layout"></i>
                     </div>
                     <h3 class="service-title" data-i18n="services.s1.title">Packaging</h3>
-                    <p class="service-description" data-i18n="services.s1.desc">Solusi kemasan sachet dan pouch modern yang menjaga kesegaran produk
+                    <p class="service-description" data-i18n="services.s1.desc">Solusi kemasan sachet dan pouch modern
+                        yang menjaga kesegaran produk
                         Anda sekaligus meningkatkan daya tarik visual brand di pasar.</p>
-                    <a href="#contact" class="service-link"><span data-i18n="services.cta">Konsultasi</span> <i data-lucide="chevron-right"></i></a>
+                    <a href="#contact" class="service-link"><span data-i18n="services.cta">Konsultasi</span> <i
+                            data-lucide="chevron-right"></i></a>
                 </div>
                 <!-- servis 2 -->
                 <div class="service-card animate-scroll">
@@ -196,9 +242,11 @@
                         <i data-lucide="code-2"></i>
                     </div>
                     <h3 class="service-title" data-i18n="services.s2.title">Label & Stiker</h3>
-                    <p class="service-description" data-i18n="services.s2.desc">Cetakan label presisi tinggi yang tahan air dan melekat sempurna
+                    <p class="service-description" data-i18n="services.s2.desc">Cetakan label presisi tinggi yang tahan
+                        air dan melekat sempurna
                         untuk memperkuat identitas serta informasi produk Anda.</p>
-                    <a href="#contact" class="service-link"><span data-i18n="services.cta">Konsultasi</span> <i data-lucide="chevron-right"></i></a>
+                    <a href="#contact" class="service-link"><span data-i18n="services.cta">Konsultasi</span> <i
+                            data-lucide="chevron-right"></i></a>
                 </div>
                 <!-- servis 3 -->
                 <div class="service-card animate-scroll">
@@ -206,9 +254,11 @@
                         <i data-lucide="fingerprint"></i>
                     </div>
                     <h3 class="service-title" data-i18n="services.s3.title">Media Promosi</h3>
-                    <p class="service-description" data-i18n="services.s3.desc">Cetakan katalog, brosur, dan materi pemasaran berkualitas tinggi
+                    <p class="service-description" data-i18n="services.s3.desc">Cetakan katalog, brosur, dan materi
+                        pemasaran berkualitas tinggi
                         untuk menyampaikan pesan bisnis Anda secara profesional kepada pelanggan.</p>
-                    <a href="#contact" class="service-link"><span data-i18n="services.cta">Konsultasi</span> <i data-lucide="chevron-right"></i></a>
+                    <a href="#contact" class="service-link"><span data-i18n="services.cta">Konsultasi</span> <i
+                            data-lucide="chevron-right"></i></a>
                 </div>
                 <!-- servis 4 -->
                 <div class="service-card animate-scroll">
@@ -216,9 +266,11 @@
                         <i data-lucide="bar-chart-3"></i>
                     </div>
                     <h3 class="service-title" data-i18n="services.s4.title">Karton & Kardus</h3>
-                    <p class="service-description" data-i18n="services.s4.desc">Kotak kemasan dan kardus logistik kokoh yang dirancang khusus untuk
+                    <p class="service-description" data-i18n="services.s4.desc">Kotak kemasan dan kardus logistik kokoh
+                        yang dirancang khusus untuk
                         melindungi produk Anda sekaligus menjadi media promosi berjalan.</p>
-                    <a href="#contact" class="service-link"><span data-i18n="services.cta">Konsultasi</span> <i data-lucide="chevron-right"></i></a>
+                    <a href="#contact" class="service-link"><span data-i18n="services.cta">Konsultasi</span> <i
+                            data-lucide="chevron-right"></i></a>
                 </div>
             </div>
         </div>
@@ -230,16 +282,20 @@
             <div class="section-header">
                 <span class="section-badge" data-i18n="portfolio.badge">Portofolio Kami</span>
                 <h2 class="section-title" data-i18n="portfolio.title">Karya Pilihan yang Kami Banggakan</h2>
-                <p class="section-subtitle" data-i18n="portfolio.subtitle">Tinjau beberapa proyek sukses yang telah kami kerjakan untuk klien kami di
+                <p class="section-subtitle" data-i18n="portfolio.subtitle">Tinjau beberapa proyek sukses yang telah kami
+                    kerjakan untuk klien kami di
                     seluruh industri.</p>
             </div>
 
             <!-- Filter kategori -->
             <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all" data-i18n="portfolio.filter.all">Semua</button>
-                <button class="filter-btn" data-filter="retail" data-i18n="portfolio.filter.retail">Kemasan Retail</button>
-                <button class="filter-btn" data-filter="logistik" data-i18n="portfolio.filter.logistik">Kemasan Logistik</button>
-                <button class="filter-btn" data-filter="promosi" data-i18n="portfolio.filter.promosi">Media Promosi & Cetakan Korporat</button>
+                <button class="filter-btn" data-filter="retail" data-i18n="portfolio.filter.retail">Kemasan
+                    Retail</button>
+                <button class="filter-btn" data-filter="logistik" data-i18n="portfolio.filter.logistik">Kemasan
+                    Logistik</button>
+                <button class="filter-btn" data-filter="promosi" data-i18n="portfolio.filter.promosi">Media Promosi &
+                    Cetakan Korporat</button>
             </div>
 
             <!-- grid portofolio -->
@@ -252,12 +308,13 @@
                     <div class="portfolio-info">
                         <span class="portfolio-category" data-i18n="portfolio.filter.retail">Kemasan Retail</span>
                         <h3 class="portfolio-title">Etiket Kenkou</h3>
-                        <p class="portfolio-desc" data-i18n="portfolio.card.retailDesc">Etiket untuk kebutuhan kemasan retail, dengan hasil print yang tajam dan warna yang cerah, cocok untuk produk-produk makanan, minuman, dan kebutuhan kemasan retail lainnya.</p>
-                        <button class="portfolio-link"
-                            data-img="dist/assets/etiket_kenkou.jpeg"
-                            data-title="Etiket Kenkou"
-                            onclick="openLightbox(this)">
-                            <span data-i18n="portfolio.viewDetail">Lihat Detail</span> <i data-lucide="external-link"></i>
+                        <p class="portfolio-desc" data-i18n="portfolio.card.retailDesc">Etiket untuk kebutuhan kemasan
+                            retail, dengan hasil print yang tajam dan warna yang cerah, cocok untuk produk-produk
+                            makanan, minuman, dan kebutuhan kemasan retail lainnya.</p>
+                        <button class="portfolio-link" data-img="dist/assets/etiket_kenkou.jpeg"
+                            data-title="Etiket Kenkou" onclick="openLightbox(this)">
+                            <span data-i18n="portfolio.viewDetail">Lihat Detail</span> <i
+                                data-lucide="external-link"></i>
                         </button>
                     </div>
                 </div>
@@ -269,12 +326,13 @@
                     <div class="portfolio-info">
                         <span class="portfolio-category" data-i18n="portfolio.filter.retail">Kemasan Retail</span>
                         <h3 class="portfolio-title">Etiket Dafi</h3>
-                        <p class="portfolio-desc" data-i18n="portfolio.card.retailDesc">Etiket untuk kebutuhan kemasan retail, dengan hasil print yang tajam dan warna yang cerah, cocok untuk produk-produk makanan, minuman, dan kebutuhan kemasan retail lainnya.</p>
-                        <button class="portfolio-link"
-                            data-img="dist/assets/etiket_dafi.jpeg"
-                            data-title="Etiket Dafi"
+                        <p class="portfolio-desc" data-i18n="portfolio.card.retailDesc">Etiket untuk kebutuhan kemasan
+                            retail, dengan hasil print yang tajam dan warna yang cerah, cocok untuk produk-produk
+                            makanan, minuman, dan kebutuhan kemasan retail lainnya.</p>
+                        <button class="portfolio-link" data-img="dist/assets/etiket_dafi.jpeg" data-title="Etiket Dafi"
                             onclick="openLightbox(this)">
-                            <span data-i18n="portfolio.viewDetail">Lihat Detail</span> <i data-lucide="external-link"></i>
+                            <span data-i18n="portfolio.viewDetail">Lihat Detail</span> <i
+                                data-lucide="external-link"></i>
                         </button>
                     </div>
                 </div>
@@ -288,7 +346,8 @@
             <div class="section-header">
                 <span class="section-badge" data-i18n="mesin.badge">Mesin Kami</span>
                 <h2 class="section-title" data-i18n="mesin.title">Mesin yang digunakan dalam produksi</h2>
-                <p class="section-subtitle" data-i18n="mesin.subtitle">mesin dengan teknologi terbaru untuk memberikan hasil yang maksimal.</p>
+                <p class="section-subtitle" data-i18n="mesin.subtitle">mesin dengan teknologi terbaru untuk memberikan
+                    hasil yang maksimal.</p>
             </div>
 
             <!-- Mesin Grid -->
@@ -303,7 +362,8 @@
                     <div class="mesin-info">
                         <span class="mesin-category">CTP</span>
                         <h3 class="mesin-title">CTP Cron HDI-600S</h3>
-                        <p class="mesin-desc" data-i18n="mesin.m1.desc">mesin Computer to Plate (CTP) berteknologi tinggi untuk mencetak desain
+                        <p class="mesin-desc" data-i18n="mesin.m1.desc">mesin Computer to Plate (CTP) berteknologi
+                            tinggi untuk mencetak desain
                             secara langsung dari komputer ke pelat cetak.</p>
                         <a href="mesin/hdi-600.html" class="mesin-link">
                             <span data-i18n="mesin.viewDetail">Lihat Detail</span>
@@ -321,7 +381,8 @@
                     <div class="mesin-info">
                         <span class="mesin-category" data-i18n="mesin.m2.cat">Cetak</span>
                         <h3 class="mesin-title">Zonten Teba-450</h3>
-                        <p class="mesin-desc" data-i18n="mesin.m2.desc">Mesin ini dirancang khusus untuk produksi label dan kemasan fleksibel
+                        <p class="mesin-desc" data-i18n="mesin.m2.desc">Mesin ini dirancang khusus untuk produksi label
+                            dan kemasan fleksibel
                             berkecepatan tinggi.</p>
                         <a href="mesin/teba-450.html" class="mesin-link">
                             <span data-i18n="mesin.viewDetail">Lihat Detail</span>
@@ -339,7 +400,8 @@
                     <div class="mesin-info">
                         <span class="mesin-category">Cutting</span>
                         <h3 class="mesin-title">Die Cut ZT-450</h3>
-                        <p class="mesin-desc" data-i18n="mesin.m3.desc">Mesin die cutting presisi tinggi untuk industri label dan kemasan.</p>
+                        <p class="mesin-desc" data-i18n="mesin.m3.desc">Mesin die cutting presisi tinggi untuk industri
+                            label dan kemasan.</p>
                         <a href="mesin/zt-450.html" class="mesin-link">
                             <span data-i18n="mesin.viewDetail">Lihat Detail</span>
                             <i data-lucide="external-link"></i>
@@ -347,11 +409,11 @@
                     </div>
 
                 </div>
-                
-            </div>
-    </section>   
 
-                <!-- About & Process Section -->
+            </div>
+    </section>
+
+    <!-- About & Process Section -->
     <section class="about" id="about">
         <div class="section-container">
             <div class="about-grid">
@@ -383,7 +445,7 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <!-- Process Tabs (Interactive) -->
 
                 <!-- Tabs contents -->
@@ -391,31 +453,39 @@
                     <!-- Tab 1 -->
                     <div class="tab-content active" id="tab-1">
                         <h4 data-i18n="about.tab1.title">Riset & Memahami Kebutuhan Anda</h4>
-                        <p data-i18n="about.tab1.desc">Langkah awal kami adalah mendengarkan visi Anda. Kami menganalisis target pasar,
+                        <p data-i18n="about.tab1.desc">Langkah awal kami adalah mendengarkan visi Anda. Kami
+                            menganalisis target pasar,
                             mempelajari kompetitor, dan mendefinisikan tujuan bisnis Anda agar strategi yang
                             kami siapkan tepat sasaran.</p>
-                        <span class="process-indicator" data-i18n="about.tab1.indicator">Tahap Awal: 100% Kolaborasi</span>
+                        <span class="process-indicator" data-i18n="about.tab1.indicator">Tahap Awal: 100%
+                            Kolaborasi</span>
                     </div>
                     <!-- Tab 2 -->
                     <div class="tab-content active" id="tab-2">
                         <h4 data-i18n="about.tab2.title">Desain Digital & Prototyping</h4>
-                        <p data-i18n="about.tab2.desc">Kami menerjemahkan strategi menjadi visual. Tim desainer kami merancang tata
+                        <p data-i18n="about.tab2.desc">Kami menerjemahkan strategi menjadi visual. Tim desainer kami
+                            merancang tata
                             letak dan interaksi (mockup) demi memastikan pengalaman
                             pengguna yang intuitif sebelum tahap produksi.</p>
-                        <span class="process-indicator" data-i18n="about.tab2.indicator">Tahap Pra-Cetak: Eksplorasi Visual</span>
+                        <span class="process-indicator" data-i18n="about.tab2.indicator">Tahap Pra-Cetak: Eksplorasi
+                            Visual</span>
                     </div>
                     <!-- Tab 3 -->
                     <div class="tab-content active" id="tab-3">
                         <h4 data-i18n="about.tab3.title">Produksi Digital Printing</h4>
-                        <p data-i18n="about.tab3.desc">Mesin digital printing kami siap mencetak kebutuhan Anda dengan kualitas terbaik dan harga terjangkau.</p>
-                        <span class="process-indicator" data-i18n="about.tab3.indicator">Tahap Cetak: Digital Printing</span>
+                        <p data-i18n="about.tab3.desc">Mesin digital printing kami siap mencetak kebutuhan Anda dengan
+                            kualitas terbaik dan harga terjangkau.</p>
+                        <span class="process-indicator" data-i18n="about.tab3.indicator">Tahap Cetak: Digital
+                            Printing</span>
                     </div>
                     <!-- Tab 4 -->
                     <div class="tab-content active" id="tab-4">
                         <h4 data-i18n="about.tab4.title">Uji Kualitas & Pengiriman</h4>
-                        <p data-i18n="about.tab4.desc">Kami memastikan setiap detail finishing fisik dan kecocokan warna berada dalam standar tertinggi. Begitu kualitas produk sempurna,
+                        <p data-i18n="about.tab4.desc">Kami memastikan setiap detail finishing fisik dan kecocokan warna
+                            berada dalam standar tertinggi. Begitu kualitas produk sempurna,
                             kami mendukung penuh proses pengemasan akhir hingga pengiriman produk.</p>
-                        <span class="process-indicator" data-i18n="about.tab4.indicator">Tahap Finishing: Produksi & Pengiriman</span>
+                        <span class="process-indicator" data-i18n="about.tab4.indicator">Tahap Finishing: Produksi &
+                            Pengiriman</span>
                     </div>
                 </div>
             </div>
@@ -427,7 +497,8 @@
             <div class="section-header">
                 <span class="section-badge" data-i18n="testi.badge">Testimoni</span>
                 <h2 class="section-title" data-i18n="testi.title">Apa Kata Klien Tentang Kami</h2>
-                <p class="section-subtitle" data-i18n="testi.subtitle">Keberhasilan klien kami adalah ukuran keberhasilan terbesar kami sendiri.
+                <p class="section-subtitle" data-i18n="testi.subtitle">Keberhasilan klien kami adalah ukuran
+                    keberhasilan terbesar kami sendiri.
                 </p>
             </div>
 
@@ -507,7 +578,8 @@
                 <div class="contact-info animate-scroll">
                     <span class="section-badge" data-i18n="contact.badge">Hubungi Kami</span>
                     <h2 class="section-title" data-i18n="contact.title">Mari Mulai Wujudkan Proyek Anda</h2>
-                    <p class="contact-desc" data-i18n="contact.desc">Ada proyek besar dalam pikiran Anda, atau sekadar ingin berkonsultasi?
+                    <p class="contact-desc" data-i18n="contact.desc">Ada proyek besar dalam pikiran Anda, atau sekadar
+                        ingin berkonsultasi?
                         Kirimkan pesan, kami akan merespons dalam waktu 24 jam kerja.</p>
 
                     <div class="contact-details-list">
@@ -516,23 +588,27 @@
                             <div class="cd-text">
                                 <span data-i18n="contact.email">Kirim Email</span>
                                 <!-- <a href="mailto:teknografitricawanaska@gmail.com">teknografitricawanaska@gmail.com</a> -->
-                                <a href="mailto:marketingtricawanaska@gmail.com?subject=Konsultasi%20Kemasan&body=Halo%20TTC,%20saya%20ingin%20berkonsultasi%20terkait%20layanan%20Anda.">marketingtricawanaska@gmail.com</a>
+                                <a
+                                    href="mailto:marketingtricawanaska@gmail.com?subject=Konsultasi%20Kemasan&body=Halo%20TTC,%20saya%20ingin%20berkonsultasi%20terkait%20layanan%20Anda.">marketingtricawanaska@gmail.com</a>
                             </div>
                         </div>
                         <div class="contact-detail-item">
                             <div class="cd-icon"><i data-lucide="phone"></i></div>
                             <div class="cd-text">
                                 <span data-i18n="contact.phone">Hubungi Telepon</span>
-                                <a href="https://wa.me/6281233390799?text=Halo%20TTC%2C%20saya%20tertarik%20untuk%20berkomunikasi%20lebih%20lanjut.">+6281233390799</a>
+                                <a
+                                    href="https://wa.me/6281233390799?text=Halo%20TTC%2C%20saya%20tertarik%20untuk%20berkomunikasi%20lebih%20lanjut.">+6281233390799</a>
                             </div>
                         </div>
                         <div class="contact-detail-item">
-                        <div class="cd-icon"><i data-lucide="message-square"></i></div>
+                            <div class="cd-icon"><i data-lucide="message-square"></i></div>
                             <div class="cd-text">
                                 <span data-i18n="contact.wechat">Hubungi WeChat</span>
                                 <a href="weixin://dl/chat?wxid_f9gt04orat0g22">wxid_f9gt04orat0g22</a>
-                                <a href="javascript:void(0)" onclick="openWeChatQRModal()" style="display:block; margin-top:5px; text-decoration:underline; cursor:pointer;" data-i18n="contact.showBarcode">
-                                Tampilkan Barcode
+                                <a href="javascript:void(0)" onclick="openWeChatQRModal()"
+                                    style="display:block; margin-top:5px; text-decoration:underline; cursor:pointer;"
+                                    data-i18n="contact.showBarcode">
+                                    Tampilkan Barcode
                                 </a>
                             </div>
                         </div>
@@ -549,28 +625,22 @@
                     <!-- Decorative glowing connection shape -->
                     <div class="connection-box">
                         <span class="pulse-indicator"></span>
-                        <span class="connection-status" data-i18n="contact.available">Tersedia untuk proyek baru bulan ini</span>
+                        <span class="connection-status" data-i18n="contact.available">Tersedia untuk proyek baru bulan
+                            ini</span>
                     </div>
                 </div>
-                
+
                 <!-- Contact Form -->
                 <div class="contact-form-container animate-scroll">
-                <form 
-                    action="https://formspree.io/f/xojoolll" 
-                    method="POST"
-                    class="contact-form" 
-                    id="contact-form" 
-                    novalidate>
+                    <form action="https://formspree.io/f/xojoolll" method="POST" class="contact-form" id="contact-form"
+                        novalidate>
                         <div class="form-group">
                             <label for="form-name" data-i18n="form.nameLabel">Nama Lengkap</label>
                             <div class="input-wrapper">
                                 <i data-lucide="user" class="input-icon"></i>
-                                <input type="text"
-                                id="form-name" 
-                                name="name"
-                                data-i18n-placeholder="form.namePlaceholder"
-                                placeholder="Siapa nama Anda?" 
-                                required>
+                                <input type="text" id="form-name" name="name"
+                                    data-i18n-placeholder="form.namePlaceholder" placeholder="Siapa nama Anda?"
+                                    required>
                             </div>
                             <span class="error-msg" id="name-error" data-i18n="form.nameError">Nama wajib diisi</span>
                         </div>
@@ -579,61 +649,60 @@
                             <label for="form-email" data-i18n="form.emailLabel">Alamat Email</label>
                             <div class="input-wrapper">
                                 <i data-lucide="mail" class="input-icon"></i>
-                                <input type="email" 
-                                id="form-email" 
-                                name="email"
-                                placeholder="nama@email.com" 
-                                required>
+                                <input type="email" id="form-email" name="email" placeholder="nama@email.com" required>
                             </div>
-                            <span class="error-msg" id="email-error" data-i18n="form.emailError">Masukkan alamat email yang valid</span>
+                            <span class="error-msg" id="email-error" data-i18n="form.emailError">Masukkan alamat email
+                                yang valid</span>
                         </div>
 
                         <div class="form-group">
                             <label for="form-service" data-i18n="form.serviceLabel">Layanan yang Dibutuhkan</label>
                             <div class="input-wrapper">
                                 <i data-lucide="settings" class="input-icon"></i>
-                                <select id="form-service" 
-                                name="service"
-                                required>
-                                    <option value="" disabled selected data-i18n="form.serviceDefault">Pilih jenis layanan...</option>
+                                <select id="form-service" name="service" required>
+                                    <option value="" disabled selected data-i18n="form.serviceDefault">Pilih jenis
+                                        layanan...</option>
                                     <option value="retail" data-i18n="portfolio.filter.retail">Kemasan Retail</option>
-                                    <option value="logistik" data-i18n="portfolio.filter.logistik">Kemasan Logistik</option>
+                                    <option value="logistik" data-i18n="portfolio.filter.logistik">Kemasan Logistik
+                                    </option>
                                     <option value="media" data-i18n="services.s3.title">Media Promosi</option>
                                     <option value="other" data-i18n="form.serviceOther">Lainnya</option>
                                 </select>
                             </div>
-                            <span class="error-msg" id="service-error" data-i18n="form.serviceError">Pilih salah satu layanan</span>
+                            <span class="error-msg" id="service-error" data-i18n="form.serviceError">Pilih salah satu
+                                layanan</span>
                         </div>
 
                         <div class="form-group">
                             <label for="form-message" data-i18n="form.msgLabel">Deskripsi Proyek Singkat</label>
                             <div class="input-wrapper text-area-wrapper">
-                                <textarea id="form-message" 
-                                name="message"
-                                rows="4"
-                                data-i18n-placeholder="form.msgPlaceholder"
+                                <textarea id="form-message" name="message" rows="4"
+                                    data-i18n-placeholder="form.msgPlaceholder"
                                     placeholder="Ceritakan tentang proyek Anda (tujuan, timeline, anggaran, dll)..."
                                     required></textarea>
                             </div>
-                            <span class="error-msg" id="message-error" data-i18n="form.msgError">Tulis deskripsi proyek Anda</span>
+                            <span class="error-msg" id="message-error" data-i18n="form.msgError">Tulis deskripsi proyek
+                                Anda</span>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
                             <span data-i18n="form.submit">Kirim Pesan</span> <i data-lucide="send"></i>
                         </button>
-                </form>
-                
+                    </form>
+
                     <!-- Form Success Alert (Hidden by default) -->
                     <div class="form-alert form-success" id="form-success-alert">
                         <div class="alert-icon"><i data-lucide="check-circle-2"></i></div>
                         <div class="alert-content">
                             <h4 data-i18n="form.successTitle">Pesan Terkirim!</h4>
-                            <p data-i18n="form.successDesc">Terima kasih telah menghubungi TTC. Tim kami akan segera meninjau detail proyek Anda dan
+                            <p data-i18n="form.successDesc">Terima kasih telah menghubungi TTC. Tim kami akan segera
+                                meninjau detail proyek Anda dan
                                 menghubungi Anda kembali.</p>
-                            <button class="btn btn-sm btn-outline-success" id="alert-close-btn" data-i18n="form.close">Tutup</button>
+                            <button class="btn btn-sm btn-outline-success" id="alert-close-btn"
+                                data-i18n="form.close">Tutup</button>
                         </div>
                     </div>
-                
+
                 </div>
             </div>
         </div>
@@ -644,7 +713,9 @@
         <div class="alamat-item">
             <div class="icon-alamat">
                 <i data-lucide="map-pin"></i>
-                <span style="font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#7c78e0; margin:0;" data-i18n="address.visit">Kunjungi Kantor</span>
+                <span
+                    style="font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#7c78e0; margin:0;"
+                    data-i18n="address.visit">Kunjungi Kantor</span>
             </div>
 
             <div class="cd-text">
@@ -660,10 +731,9 @@
                         </a>
                     </div>
                 </div>
-                <iframe 
+                <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.2028918618776!2d112.68189067500583!3d-7.873827092148431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62b0010763eab%3A0x4e64cac8e6dabca2!2sPT.%20Teknografi%20Tri%20Cawanaska!5e0!3m2!1sid!2sid!4v1785212591500!5m2!1sid!2sid"
-                    width="600" height="450" style="border:0;" 
-                    allowfullscreen="" loading="lazy" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>
             </div>
@@ -678,10 +748,14 @@
                     <a href="#" class="footer-logo"><span class="logo-dot"></span>TTC</a>
                     <p class="footer-brand-desc" data-i18n="footer.desc">Solusi digital printing terbaik anda!</p>
                     <div class="social-links">
-                        <a href="https://wa.me/6281233390799" class="social-link-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.instagram.com/teknografitricawanaska?igsh=c2hsbHAza3Q4MTN5" class="social-link-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@teknografitricawanaska?_r=1&_t=ZS-97gebDHrgl3" class="social-link-btn" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.facebook.com/share/19GgE2N8mu" class="social-link-btn" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/6281233390799" class="social-link-btn" aria-label="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/teknografitricawanaska?igsh=c2hsbHAza3Q4MTN5"
+                            class="social-link-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@teknografitricawanaska?_r=1&_t=ZS-97gebDHrgl3"
+                            class="social-link-btn" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/share/19GgE2N8mu" class="social-link-btn"
+                            aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
 
@@ -699,13 +773,16 @@
 
                 <div class="footer-newsletter-col">
                     <h4 data-i18n="footer.newsletterTitle">Dapatkan Update Terbaru</h4>
-                    <p data-i18n="footer.newsletterDesc">Berlangganan newsletter kami untuk mendapatkan tips dan tren digital terbaru langsung di email
+                    <p data-i18n="footer.newsletterDesc">Berlangganan newsletter kami untuk mendapatkan tips dan tren
+                        digital terbaru langsung di email
                         Anda.</p>
                     <form class="newsletter-form" id="newsletter-form">
-                        <input type="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Alamat email Anda" required aria-label="Email Newsletter">
+                        <input type="email" data-i18n-placeholder="footer.emailPlaceholder"
+                            placeholder="Alamat email Anda" required aria-label="Email Newsletter">
                         <button type="submit" aria-label="Subscribe"><i data-lucide="arrow-right"></i></button>
                     </form>
-                    <div id="newsletter-msg" class="newsletter-msg" data-i18n="footer.newsletterThanks">Terima kasih telah berlangganan!</div>
+                    <div id="newsletter-msg" class="newsletter-msg" data-i18n="footer.newsletterThanks">Terima kasih
+                        telah berlangganan!</div>
                 </div>
             </div>
         </div>
@@ -751,7 +828,7 @@
         }
     </script>
     <!-- Lucide Icons Library (CDN) -->
-    <script src="https://unpkg.com/lucide@latest"></script> 
+    <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Script Link -->
     <!-- <script type="module" src="app.js"></script> -->
     <script type="module" src="app.js"></script>
