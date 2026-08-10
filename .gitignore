@@ -2,4 +2,4 @@
 .renamify/
 .node_modules/
 .build-output/
-dist/
+dist/assets/trial-video.mp4
