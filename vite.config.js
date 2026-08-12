@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/company-profile-ttc/',
+  base: '/',
   build: {
     outDir: 'build-output',
   },
